@@ -1,0 +1,17 @@
+"MVM.GiantHeavyStep"
+{
+	"channel"		"CHAN_BODY"
+	"volume"		"1.000"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"	"SNDLVL_70dB"	
+	"wave"		    "MVM.BotStep"	
+}
+
+"MVM.GiantDemoStep"
+{
+	"channel"		"CHAN_BODY"
+	"volume"		"1.000"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"	"SNDLVL_70dB"	
+	"wave"		    "MVM.GiantSoldierStep"	
+}

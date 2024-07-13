@@ -1,0 +1,71 @@
+
+
+class loadOut
+{
+    name = "error"
+
+    tfClass = "error"
+
+    weapon = 
+    [
+        // [weapon ID, weapon class name]
+    ]
+    attributes = 
+    [
+         // [name, value]
+    ]
+    tags = 
+    [
+        // "tag"
+    ]
+}
+
+
+::SetClassLoadout <- function(player, loadOut)
+{
+    if (!player) return
+
+    RemoveAllWeapons(player)
+    foreach (weapon in loadOut.weapon) {
+        GivePlayerWeapon(player, loadOut.weapon[0][0], loadOut.weapon[0][1])
+    }
+
+    foreach (attribute in loadOut.attributes) {
+        player.AddCustomAttribute(loadOut.attribute[0][0], loadOut.attribute[0][1], -1)        
+    }
+
+    foreach (tag in loadOut.tags) {
+        player.AddBotTag(tag.tostring())
+    }
+
+    player.AddBotTag("loadout set")
+}
+
+ScoutTestClass <- class extends loadOut
+{
+    name = "Scout FaN User"
+
+    tfClass = "scout"
+
+    weapon = 
+    [
+        ["tf_weapon_scattergun", 45]
+    ]
+
+    attributes = 
+    [
+        ["max health additive bonus", 100]
+    ]
+
+    tags = 
+    [
+        "class set"
+        "giant"
+        "jungle"
+    ]
+}
+
+::loadoutList = 
+[
+    ScoutTestClass
+]
